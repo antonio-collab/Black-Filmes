@@ -1,20 +1,18 @@
-// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
-// Definir o modelo filme
 model Filme {
-  id          Int     @id @default(autoincrement())
-  title       String
-  imageURL    String
-  amount      Int
-  describe    String
+  id Int @id @default(autoincrement())
+  title String
+  imageURL String
+  amount Decimal
+  describe String
   time_minutes Int
 }
